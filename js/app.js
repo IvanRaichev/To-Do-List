@@ -41,7 +41,6 @@ function completeBtn() {
          const result = this.closest('li');
          result.classList.toggle('completed');
 
-         // Обновите статус задачи в localStorage
          const index = result.getAttribute('data-index');
          tasks[index] = result.outerHTML;
          localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -59,7 +58,6 @@ function deleteBtn() {
          result.remove();
          tasks.splice(index, 1);
 
-         // Обновите индексы задач в localStorage
          tasks.forEach((task, i) => {
             const updatedTask = task.replace(`data-index="${index}"`, `data-index="${i}"`);
             tasks[i] = updatedTask;
